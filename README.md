@@ -1,3 +1,6 @@
+
+Quero mostrar o fluxo de uma real prevenção à Fraude no mercado de seguros e o quanto é importante este trabalho periódico para evitar fraudadores no ápice da contratação também.
+
 🕵️‍♂️ Fraud Analytics: Detecção Preditiva de Fraudes em Seguros
 Este repositório contém um projeto fim-a-fim de ciência de dados focado na identificação de fraudes em sinistros. O projeto utiliza Python para o pipeline de dados e machine learning, e Power BI para a visualização estratégica dos resultados.
 
