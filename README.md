@@ -40,3 +40,9 @@ Anomalias de Participantes: Identificação de padrões de CPFs recorrentes ou s
 Os scripts em Python foram desenvolvidos no VS Code.
 
 O output final alimenta o arquivo de Power BI, permitindo filtrar sinistros com Score > 80 para investigação prioritária pela equipe de Sindicância.
+
+🛠️ Tecnologias Utilizadas
+* **Python 3.x** (Pandas, Scikit-Learn)
+* **VS Code**
+* **Power BI**
+* **Design de UI/UX** (PowerPoint & SVG)
