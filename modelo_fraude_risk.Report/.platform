@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "Report",
+    "displayName": "modelo_fraude_risk"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "3f34bf64-3eab-446c-97c8-cdab092794b2"
+  }
+}

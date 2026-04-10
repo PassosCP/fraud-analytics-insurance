@@ -1,41 +1,42 @@
-# 🛡️ Fraud Analytics: Inteligência Preditiva em Sinistros de Seguros
+🕵️‍♂️ Fraud Analytics: Detecção Preditiva de Fraudes em Seguros
+Este repositório contém um projeto fim-a-fim de ciência de dados focado na identificação de fraudes em sinistros. O projeto utiliza Python para o pipeline de dados e machine learning, e Power BI para a visualização estratégica dos resultados.
 
-Este projeto apresenta uma solução completa de **Prevenção à Fraude** para o mercado segurador, integrando Engenharia de Dados, Machine Learning e Visualização Estratégica. 
+📊 Business Case
+O objetivo principal é reduzir o "vazamento" financeiro, identificando sinistros suspeitos que as regras de negócio tradicionais não conseguem detectar.
 
-Com base em um dataset de **55.000 registros**, o objetivo é identificar comportamentos atípicos e mitigar perdas financeiras por meio de um Score de Risco.
+Perda Evitada Potencial: R$ 17 Bilhões.
 
----
+Assertividade (Hit Rate): 16,47%.
 
-## 🚀 Destaques do Projeto
-* **Modelo Preditivo:** Utilização do algoritmo *Random Forest* para classificação de riscos.
-* **Performance:** Alcançado um **AUC-ROC de 0.99**, demonstrando alta capacidade de segregação entre sinistros legítimos e fraudulentos.
-* **Engenharia de Atributos:** Criação de variáveis baseadas em regras de negócio reais (Vigência curta, Reincidência de CPF e Discrepância de Tabela FIPE).
-* **Visualização:** Dashboard em Power BI para priorização operacional de sindicância.
+Volume Analisado: 55 mil sinistros.
 
----
+📁 Estrutura do Projeto
+Conforme a arquitetura do repositório:
 
-## 📊 Validação Estatística (Curva ROC)
-Abaixo, a evidência da performance do modelo. O alto índice de AUC (Área Sob a Curva) garante que a operação de antifraude foque nos casos de alta probabilidade, reduzindo o custo de "alarmes falsos" em clientes honestos.
+data/raw/: Contém as bases originais de apólices, sinistros, veículos e o histórico de fraudes confirmadas.
 
-![Curva ROC](data/processed/validacao_curva_roc.png)
+data/processed/: Armazena a base_final_priorizacao.csv gerada após o tratamento de dados e o modelo de ML, além da validação técnica (validacao_curva_roc.png).
 
----
+src/:
 
-## 🛠️ Tecnologias Utilizadas
-* **Python 3.8+**: Processamento e Modelagem.
-* **Pandas & NumPy**: Manipulação de dados e lógica de negócio.
-* **Scikit-Learn**: Treinamento e validação do Machine Learning.
-* **Matplotlib**: Visualização de métricas de performance.
-* **Power BI**: Dashboards executivos e operacionais.
+gerador_dados.py: Script responsável pelo saneamento e cruzamento das bases brutas.
 
----
+processamento_ml.py: Engine de Machine Learning que realiza o treinamento e gera o Score de Risco.
 
-## 📁 Estrutura do Repositório
-* `src/gerador_dados.py`: Simulação de dados com vieses de fraude reais.
-* `src/processamento_ml.py`: Pipeline de ETL e treinamento do modelo.
-* `data/processed/`: Base final com scores pronta para consumo no BI.
+modelo_fraude_suspeita.pbix: Dashboard interativo para tomada de decisão.
 
----
+Risco Seguro layout: Arquivos de design (PPTX/SVG) utilizados para a interface profissional do dashboard.
 
-## 👨‍💼 Sobre o Autor
-Analista de Dados com mais de 15 anos de experiência no mercado segurador, especializado em prevenção à fraude e inteligência investigativa.
+🛠️ Metodologia e Modelagem
+O modelo foi treinado para identificar "assinaturas de fraude" baseando-se em:
+
+Sinistros Prematuros: Análise do tempo entre o início da vigência e a ocorrência.
+
+Discrepância de Valores: Cruzamento entre valores reclamados e médias históricas de mercado.
+
+Anomalias de Participantes: Identificação de padrões de CPFs recorrentes ou suspeitos.
+
+🚀 Como Visualizar
+Os scripts em Python foram desenvolvidos no VS Code.
+
+O output final alimenta o arquivo de Power BI, permitindo filtrar sinistros com Score > 80 para investigação prioritária pela equipe de Sindicância.

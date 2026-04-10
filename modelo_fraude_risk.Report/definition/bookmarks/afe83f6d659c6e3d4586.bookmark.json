@@ -1,0 +1,1076 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/bookmark/2.1.0/schema.json",
+  "displayName": "Dash sem filtro",
+  "name": "afe83f6d659c6e3d4586",
+  "options": {
+    "targetVisualNames": [
+      "d64675ee0748ab367ca4"
+    ]
+  },
+  "explorationState": {
+    "version": "1.3",
+    "activeSection": "fda06672a00211b64138",
+    "sections": {
+      "fda06672a00211b64138": {
+        "visualContainers": {
+          "df1c43c772e17f74548a": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "db4f76e31fe5f1dcd18a",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "base_final_priorizacao"
+                        }
+                      },
+                      "Property": "Faixa de Risco"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "d3254a7e1af588009ddd",
+                  "type": "Advanced",
+                  "expression": {
+                    "Aggregation": {
+                      "Expression": {
+                        "Column": {
+                          "Expression": {
+                            "SourceRef": {
+                              "Entity": "base_final_priorizacao"
+                            }
+                          },
+                          "Property": "id_sinistro"
+                        }
+                      },
+                      "Function": 2
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "11ec30ad407b2f9d5303",
+                  "type": "Advanced",
+                  "expression": {
+                    "Aggregation": {
+                      "Expression": {
+                        "Column": {
+                          "Expression": {
+                            "SourceRef": {
+                              "Entity": "base_final_priorizacao"
+                            }
+                          },
+                          "Property": "valor_reclamado"
+                        }
+                      },
+                      "Function": 0
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "clusteredColumnChart",
+              "objects": {},
+              "orderBy": [
+                {
+                  "Direction": 1,
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "base_final_priorizacao"
+                        }
+                      },
+                      "Property": "Faixa de Risco"
+                    }
+                  }
+                }
+              ],
+              "activeProjections": {
+                "Category": [
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "base_final_priorizacao"
+                        }
+                      },
+                      "Property": "Faixa de Risco"
+                    }
+                  }
+                ]
+              }
+            }
+          },
+          "26878c6de6a45315a7a1": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "43a639553de167b72661",
+                  "type": "Categorical",
+                  "filter": {
+                    "Version": 2,
+                    "From": [
+                      {
+                        "Name": "b",
+                        "Entity": "base_final_priorizacao",
+                        "Type": 0
+                      }
+                    ],
+                    "Where": [
+                      {
+                        "Condition": {
+                          "In": {
+                            "Expressions": [
+                              {
+                                "Column": {
+                                  "Expression": {
+                                    "SourceRef": {
+                                      "Source": "b"
+                                    }
+                                  },
+                                  "Property": "Faixa de Risco"
+                                }
+                              }
+                            ],
+                            "Values": [
+                              [
+                                {
+                                  "Literal": {
+                                    "Value": "'61-80 (Alto)'"
+                                  }
+                                }
+                              ],
+                              [
+                                {
+                                  "Literal": {
+                                    "Value": "'81-90 (Crítico)'"
+                                  }
+                                }
+                              ],
+                              [
+                                {
+                                  "Literal": {
+                                    "Value": "'91-100 (Sindicância Imediata)'"
+                                  }
+                                }
+                              ]
+                            ]
+                          }
+                        }
+                      }
+                    ]
+                  },
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "base_final_priorizacao"
+                        }
+                      },
+                      "Property": "Faixa de Risco"
+                    }
+                  },
+                  "howCreated": 1
+                },
+                {
+                  "name": "a398a6913a8657eb54ea",
+                  "type": "Advanced",
+                  "expression": {
+                    "Aggregation": {
+                      "Expression": {
+                        "Column": {
+                          "Expression": {
+                            "SourceRef": {
+                              "Entity": "base_final_priorizacao"
+                            }
+                          },
+                          "Property": "id_sinistro"
+                        }
+                      },
+                      "Function": 0
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "1727cd6df081668e76a6",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "base_final_priorizacao"
+                        }
+                      },
+                      "Property": "tipo_sinistro"
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "treemap",
+              "objects": {},
+              "activeProjections": {
+                "Group": [
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "base_final_priorizacao"
+                        }
+                      },
+                      "Property": "tipo_sinistro"
+                    }
+                  }
+                ]
+              }
+            }
+          },
+          "e4c5098e9e4ea0b309cb": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "4863ee72da3d3fa0a293",
+                  "type": "Advanced",
+                  "expression": {
+                    "Aggregation": {
+                      "Expression": {
+                        "Column": {
+                          "Expression": {
+                            "SourceRef": {
+                              "Entity": "base_final_priorizacao"
+                            }
+                          },
+                          "Property": "dias_vigencia_ate_sinistro"
+                        }
+                      },
+                      "Function": 1
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "e5167fcc8470289e25f1",
+                  "type": "Advanced",
+                  "expression": {
+                    "Aggregation": {
+                      "Expression": {
+                        "Column": {
+                          "Expression": {
+                            "SourceRef": {
+                              "Entity": "base_final_priorizacao"
+                            }
+                          },
+                          "Property": "score_fraude"
+                        }
+                      },
+                      "Function": 1
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "dd87f12b8d5b008e322c",
+                  "type": "Advanced",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "base_final_priorizacao"
+                        }
+                      },
+                      "Property": "id_sinistro"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "3eac55beeac702e8ca74",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "base_final_priorizacao"
+                        }
+                      },
+                      "Property": "tipo_sinistro"
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "scatterChart",
+              "objects": {},
+              "activeProjections": {
+                "X": [
+                  {
+                    "Aggregation": {
+                      "Expression": {
+                        "Column": {
+                          "Expression": {
+                            "SourceRef": {
+                              "Entity": "base_final_priorizacao"
+                            }
+                          },
+                          "Property": "dias_vigencia_ate_sinistro"
+                        }
+                      },
+                      "Function": 1
+                    }
+                  }
+                ],
+                "Category": [
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "base_final_priorizacao"
+                        }
+                      },
+                      "Property": "id_sinistro"
+                    }
+                  }
+                ]
+              }
+            }
+          },
+          "a40e8d67b8ccc9a6d7fb": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "53ce7fb5457189c147d9",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "base_final_priorizacao"
+                        }
+                      },
+                      "Property": "Taxa de Detecção de Fraude"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "61e1e0806b85b8da6b22",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "base_final_priorizacao"
+                        }
+                      },
+                      "Property": "Meta Detecção"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "adcf296e4c079052caeb",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "base_final_priorizacao"
+                        }
+                      },
+                      "Property": "Limite Maximo Gauge"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "0a16c996a9c9dd7ce3a6",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "base_final_priorizacao"
+                        }
+                      },
+                      "Property": "Limite Minimo Gauge"
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "gauge",
+              "objects": {},
+              "orderBy": [
+                {
+                  "Direction": 2,
+                  "Expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "base_final_priorizacao"
+                        }
+                      },
+                      "Property": "Taxa de Detecção de Fraude"
+                    }
+                  }
+                }
+              ]
+            }
+          },
+          "d7e007114c143f03deb3": {
+            "singleVisual": {
+              "visualType": "image",
+              "objects": {}
+            }
+          },
+          "6c5891db31746036852b": {
+            "singleVisual": {
+              "visualType": "image",
+              "objects": {}
+            }
+          },
+          "275c921d2bfc974bb7c1": {
+            "singleVisual": {
+              "visualType": "image",
+              "objects": {}
+            }
+          },
+          "c30fbc98b06781e1ce4c": {
+            "singleVisual": {
+              "visualType": "image",
+              "objects": {}
+            }
+          },
+          "2585601ce1822794c832": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "773e5ee40e80babc40ed",
+                  "type": "Advanced",
+                  "expression": {
+                    "Aggregation": {
+                      "Expression": {
+                        "Column": {
+                          "Expression": {
+                            "SourceRef": {
+                              "Entity": "base_final_priorizacao"
+                            }
+                          },
+                          "Property": "valor_reclamado"
+                        }
+                      },
+                      "Function": 0
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "cardVisual",
+              "objects": {},
+              "orderBy": [
+                {
+                  "Direction": 2,
+                  "Expression": {
+                    "Aggregation": {
+                      "Expression": {
+                        "Column": {
+                          "Expression": {
+                            "SourceRef": {
+                              "Entity": "base_final_priorizacao"
+                            }
+                          },
+                          "Property": "valor_reclamado"
+                        }
+                      },
+                      "Function": 0
+                    }
+                  }
+                }
+              ]
+            }
+          },
+          "00e5addf09d3b537af76": {
+            "singleVisual": {
+              "visualType": "textbox",
+              "objects": {}
+            }
+          },
+          "fd28edb9e0a26d5b0c2b": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "4ce4bdef01fc3f7fc083",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "base_final_priorizacao"
+                        }
+                      },
+                      "Property": "Perda Evitada Potencial"
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "cardVisual",
+              "objects": {},
+              "orderBy": [
+                {
+                  "Direction": 2,
+                  "Expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "base_final_priorizacao"
+                        }
+                      },
+                      "Property": "Perda Evitada Potencial"
+                    }
+                  }
+                }
+              ]
+            }
+          },
+          "d5cee54c17e524250b71": {
+            "singleVisual": {
+              "visualType": "textbox",
+              "objects": {}
+            }
+          },
+          "48463b00d879f303ce93": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "0682b17613e07bb55cd4",
+                  "type": "Advanced",
+                  "expression": {
+                    "Aggregation": {
+                      "Expression": {
+                        "Column": {
+                          "Expression": {
+                            "SourceRef": {
+                              "Entity": "base_final_priorizacao"
+                            }
+                          },
+                          "Property": "id_sinistro"
+                        }
+                      },
+                      "Function": 2
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "cardVisual",
+              "objects": {},
+              "orderBy": [
+                {
+                  "Direction": 2,
+                  "Expression": {
+                    "Aggregation": {
+                      "Expression": {
+                        "Column": {
+                          "Expression": {
+                            "SourceRef": {
+                              "Entity": "base_final_priorizacao"
+                            }
+                          },
+                          "Property": "id_sinistro"
+                        }
+                      },
+                      "Function": 2
+                    }
+                  }
+                }
+              ]
+            }
+          },
+          "ca0924aa3b5db4df9383": {
+            "singleVisual": {
+              "visualType": "textbox",
+              "objects": {}
+            }
+          },
+          "59ea7c782dc7dcb44246": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "766e2bc211ddeeaeb395",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "base_final_priorizacao"
+                        }
+                      },
+                      "Property": "Qtd Fraudes Confirmadas"
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "cardVisual",
+              "objects": {},
+              "orderBy": [
+                {
+                  "Direction": 2,
+                  "Expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "base_final_priorizacao"
+                        }
+                      },
+                      "Property": "Qtd Fraudes Confirmadas"
+                    }
+                  }
+                }
+              ]
+            }
+          },
+          "471280c01b6e96d6dbfc": {
+            "singleVisual": {
+              "visualType": "textbox",
+              "objects": {}
+            }
+          },
+          "7886002c12884024b0c1": {
+            "singleVisual": {
+              "visualType": "image",
+              "objects": {}
+            }
+          },
+          "d7a3aabc2521a980df32": {
+            "singleVisual": {
+              "visualType": "textbox",
+              "objects": {}
+            }
+          },
+          "475ecf50d7846fff05a9": {
+            "singleVisual": {
+              "visualType": "textbox",
+              "objects": {}
+            }
+          },
+          "5ef2a3bf7b19bc8e7164": {
+            "singleVisual": {
+              "visualType": "textbox",
+              "objects": {}
+            }
+          },
+          "7fdde289cf641c22a35c": {
+            "singleVisual": {
+              "visualType": "textbox",
+              "objects": {}
+            }
+          },
+          "45efea3f60ada8a29c47": {
+            "singleVisual": {
+              "visualType": "textbox",
+              "objects": {}
+            }
+          },
+          "eee63e61fc0dbd5cb7a2": {
+            "singleVisual": {
+              "visualType": "textbox",
+              "objects": {}
+            }
+          },
+          "4bbf953855e22f56e80e": {
+            "singleVisual": {
+              "visualType": "actionButton",
+              "objects": {}
+            }
+          },
+          "3fd625be7c38c575be24": {
+            "singleVisual": {
+              "visualType": "textbox",
+              "objects": {}
+            }
+          },
+          "868e1929c6b7961c8715": {
+            "singleVisual": {
+              "visualType": "textbox",
+              "objects": {}
+            }
+          },
+          "d1f1780c426e00147eee": {
+            "singleVisual": {
+              "visualType": "image",
+              "objects": {}
+            }
+          },
+          "7b15e155a1ba109965ca": {
+            "singleVisual": {
+              "visualType": "shape",
+              "objects": {}
+            }
+          },
+          "8607a1cd5668574eeff6": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "370ec457195607de3336",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "base_final_priorizacao"
+                        }
+                      },
+                      "Property": "Status do Sinistro"
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "slicer",
+              "objects": {
+                "merge": {
+                  "data": [
+                    {
+                      "properties": {
+                        "mode": {
+                          "expr": {
+                            "Literal": {
+                              "Value": "'Dropdown'"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              },
+              "activeProjections": {
+                "Values": [
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "base_final_priorizacao"
+                        }
+                      },
+                      "Property": "Status do Sinistro"
+                    }
+                  }
+                ]
+              }
+            }
+          },
+          "ce1b391830b8db355479": {
+            "singleVisual": {
+              "visualType": "shape",
+              "objects": {}
+            }
+          },
+          "219012bbc0391a172bec": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "eae911512ddd3a51aa08",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "base_final_priorizacao"
+                        }
+                      },
+                      "Property": "tipo_sinistro"
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "slicer",
+              "objects": {
+                "merge": {
+                  "data": [
+                    {
+                      "properties": {
+                        "mode": {
+                          "expr": {
+                            "Literal": {
+                              "Value": "'Dropdown'"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              },
+              "activeProjections": {
+                "Values": [
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "base_final_priorizacao"
+                        }
+                      },
+                      "Property": "tipo_sinistro"
+                    }
+                  }
+                ]
+              }
+            }
+          },
+          "9b57f6fd830378d014ab": {
+            "singleVisual": {
+              "visualType": "shape",
+              "objects": {}
+            }
+          },
+          "d32541c506af50d37e16": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "7efa02ce7518ff5fe31e",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "base_final_priorizacao"
+                        }
+                      },
+                      "Property": "Faixa de Risco"
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "slicer",
+              "objects": {
+                "merge": {
+                  "data": [
+                    {
+                      "properties": {
+                        "mode": {
+                          "expr": {
+                            "Literal": {
+                              "Value": "'Dropdown'"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              },
+              "activeProjections": {
+                "Values": [
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "base_final_priorizacao"
+                        }
+                      },
+                      "Property": "Faixa de Risco"
+                    }
+                  }
+                ]
+              }
+            }
+          },
+          "1509a6194ee1d9402a0e": {
+            "singleVisual": {
+              "visualType": "shape",
+              "objects": {}
+            }
+          },
+          "2d3556391ed6da72deaa": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "5fedabed43d87b4e5a4e",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "base_final_priorizacao"
+                        }
+                      },
+                      "Property": "Data Mes"
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "slicer",
+              "objects": {
+                "merge": {
+                  "data": [
+                    {
+                      "properties": {
+                        "mode": {
+                          "expr": {
+                            "Literal": {
+                              "Value": "'Dropdown'"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              },
+              "activeProjections": {
+                "Values": [
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "base_final_priorizacao"
+                        }
+                      },
+                      "Property": "Data Mes"
+                    }
+                  }
+                ]
+              }
+            }
+          },
+          "78ca5350aa52d3bd3b3e": {
+            "singleVisual": {
+              "visualType": "shape",
+              "objects": {}
+            }
+          },
+          "1ba8df9870a106424f34": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "47c08a015c6e3068e42a",
+                  "type": "Advanced",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "base_final_priorizacao"
+                        }
+                      },
+                      "Property": "Data Ano"
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "slicer",
+              "objects": {
+                "merge": {
+                  "data": [
+                    {
+                      "properties": {
+                        "mode": {
+                          "expr": {
+                            "Literal": {
+                              "Value": "'Dropdown'"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              },
+              "activeProjections": {
+                "Values": [
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "base_final_priorizacao"
+                        }
+                      },
+                      "Property": "Data Ano"
+                    }
+                  }
+                ]
+              }
+            }
+          },
+          "f9b5345f96e94aaea30f": {
+            "singleVisual": {
+              "visualType": "shape",
+              "objects": {}
+            }
+          },
+          "f7bf66b677edb0ffe5f0": {
+            "singleVisual": {
+              "visualType": "actionButton",
+              "objects": {}
+            }
+          },
+          "cd545ff23909d12f5dee": {
+            "singleVisual": {
+              "visualType": "actionButton",
+              "objects": {}
+            }
+          }
+        },
+        "visualContainerGroups": {
+          "b264c394788ba60cc993": {
+            "isHidden": true
+          }
+        }
+      }
+    },
+    "objects": {
+      "merge": {
+        "outspacePane": [
+          {
+            "properties": {
+              "expanded": {
+                "expr": {
+                  "Literal": {
+                    "Value": "false"
+                  }
+                }
+              }
+            }
+          }
+        ]
+      }
+    }
+  }
+}

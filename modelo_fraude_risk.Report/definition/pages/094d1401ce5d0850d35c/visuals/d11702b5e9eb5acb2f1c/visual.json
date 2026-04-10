@@ -1,0 +1,119 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.7.0/schema.json",
+  "name": "d11702b5e9eb5acb2f1c",
+  "position": {
+    "x": 240.24316109422494,
+    "y": 421.15501519756839,
+    "z": 1000,
+    "height": 257.75075987841944,
+    "width": 466.86930091185411,
+    "tabOrder": 1000
+  },
+  "visual": {
+    "visualType": "scatterChart",
+    "query": {
+      "queryState": {
+        "Category": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "base_final_priorizacao"
+                    }
+                  },
+                  "Property": "id_sinistro"
+                }
+              },
+              "queryRef": "base_final_priorizacao.id_sinistro",
+              "nativeQueryRef": "id_sinistro",
+              "active": true
+            }
+          ]
+        },
+        "Series": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "base_final_priorizacao"
+                    }
+                  },
+                  "Property": "tipo_sinistro"
+                }
+              },
+              "queryRef": "base_final_priorizacao.tipo_sinistro",
+              "nativeQueryRef": "tipo_sinistro"
+            }
+          ]
+        },
+        "X": {
+          "projections": [
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "base_final_priorizacao"
+                        }
+                      },
+                      "Property": "dias_vigencia_ate_sinistro"
+                    }
+                  },
+                  "Function": 1
+                }
+              },
+              "queryRef": "Sum(base_final_priorizacao.dias_vigencia_ate_sinistro)",
+              "nativeQueryRef": "Média de dias_vigencia_ate_sinistro",
+              "active": true
+            }
+          ]
+        },
+        "Y": {
+          "projections": [
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "base_final_priorizacao"
+                        }
+                      },
+                      "Property": "score_fraude"
+                    }
+                  },
+                  "Function": 1
+                }
+              },
+              "queryRef": "Sum(base_final_priorizacao.score_fraude)",
+              "nativeQueryRef": "Média de score_fraude"
+            }
+          ]
+        }
+      }
+    },
+    "objects": {
+      "bubbles": [
+        {
+          "properties": {
+            "bubbleSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "-5L"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

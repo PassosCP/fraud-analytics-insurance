@@ -1,0 +1,10 @@
+relationship b0f83e7e-f9e8-47b7-abf4-9f59a99d9ffa
+	joinOnDateBehavior: datePartOnly
+	fromColumn: base_final_priorizacao.data_ocorrencia
+	toColumn: LocalDateTable_f7ace052-7d7b-4b55-aa06-ff606bdd8e42.Date
+
+relationship 6f9a08b1-be5e-4d06-b0d7-24abe07bc268
+	joinOnDateBehavior: datePartOnly
+	fromColumn: base_final_priorizacao.data_inicio_vigencia
+	toColumn: LocalDateTable_142e163e-3ba6-49c3-a043-7416693d3e69.Date
+

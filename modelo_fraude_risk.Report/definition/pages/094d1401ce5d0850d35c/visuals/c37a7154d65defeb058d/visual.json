@@ -1,0 +1,64 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.7.0/schema.json",
+  "name": "c37a7154d65defeb058d",
+  "position": {
+    "x": 11.758530183727034,
+    "y": 357.79527559055117,
+    "z": 10000,
+    "height": 127.66404199475065,
+    "width": 208.29396325459317,
+    "tabOrder": 10000
+  },
+  "visual": {
+    "visualType": "slicer",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "base_final_priorizacao"
+                    }
+                  },
+                  "Property": "tipo_sinistro"
+                }
+              },
+              "queryRef": "base_final_priorizacao.tipo_sinistro",
+              "nativeQueryRef": "tipo_sinistro",
+              "active": true
+            }
+          ]
+        }
+      }
+    },
+    "objects": {
+      "data": [
+        {
+          "properties": {
+            "mode": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Basic'"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "general": [
+        {
+          "properties": {}
+        }
+      ]
+    },
+    "syncGroup": {
+      "groupName": "tipo_sinistro",
+      "fieldChanges": true,
+      "filterChanges": true
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

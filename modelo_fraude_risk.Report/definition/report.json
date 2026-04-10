@@ -1,0 +1,119 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/report/3.2.0/schema.json",
+  "themeCollection": {
+    "baseTheme": {
+      "name": "CY26SU02",
+      "reportVersionAtImport": {
+        "visual": "2.6.0",
+        "report": "3.1.0",
+        "page": "2.3.0"
+      },
+      "type": "SharedResources"
+    },
+    "customTheme": {
+      "name": "AccessibleDefault",
+      "reportVersionAtImport": {
+        "visual": "2.7.0",
+        "report": "3.2.0",
+        "page": "2.3.1"
+      },
+      "type": "SharedResources"
+    }
+  },
+  "objects": {
+    "section": [
+      {
+        "properties": {
+          "verticalAlignment": {
+            "expr": {
+              "Literal": {
+                "Value": "'Top'"
+              }
+            }
+          }
+        }
+      }
+    ],
+    "outspacePane": [
+      {
+        "properties": {
+          "expanded": {
+            "expr": {
+              "Literal": {
+                "Value": "false"
+              }
+            }
+          }
+        }
+      }
+    ]
+  },
+  "resourcePackages": [
+    {
+      "name": "SharedResources",
+      "type": "SharedResources",
+      "items": [
+        {
+          "name": "AccessibleDefault",
+          "path": "BuiltInThemes/AccessibleDefault.json",
+          "type": "CustomTheme"
+        },
+        {
+          "name": "CY26SU02",
+          "path": "BaseThemes/CY26SU02.json",
+          "type": "BaseTheme"
+        }
+      ]
+    },
+    {
+      "name": "RegisteredResources",
+      "type": "RegisteredResources",
+      "items": [
+        {
+          "name": "Filtro_dados8414232116780455.png",
+          "path": "Filtro_dados8414232116780455.png",
+          "type": "Image"
+        },
+        {
+          "name": "icons8-custo-640448976722348462.png",
+          "path": "icons8-custo-640448976722348462.png",
+          "type": "Image"
+        },
+        {
+          "name": "icons8-engarrafamento-509805174049245464.png",
+          "path": "icons8-engarrafamento-509805174049245464.png",
+          "type": "Image"
+        },
+        {
+          "name": "icons8-hacker-488194890679986726.png",
+          "path": "icons8-hacker-488194890679986726.png",
+          "type": "Image"
+        },
+        {
+          "name": "icons8-x-5074252242136311.png",
+          "path": "icons8-x-5074252242136311.png",
+          "type": "Image"
+        },
+        {
+          "name": "resumo0027628718577790146.png",
+          "path": "resumo0027628718577790146.png",
+          "type": "Image"
+        },
+        {
+          "name": "Risco_Seguro_layout04777993583815032.svg",
+          "path": "Risco_Seguro_layout04777993583815032.svg",
+          "type": "Image"
+        }
+      ]
+    }
+  ],
+  "settings": {
+    "useStylableVisualContainerHeader": true,
+    "exportDataMode": "AllowSummarized",
+    "defaultDrillFilterOtherVisuals": true,
+    "allowChangeFilterTypes": true,
+    "useEnhancedTooltips": true,
+    "filterPaneHiddenInEditMode": true,
+    "useDefaultAggregateDisplayName": true
+  }
+}

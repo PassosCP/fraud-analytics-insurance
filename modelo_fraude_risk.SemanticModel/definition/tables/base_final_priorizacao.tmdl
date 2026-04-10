@@ -1,0 +1,293 @@
+table base_final_priorizacao
+	lineageTag: 8291a0c4-c226-4263-b9cb-c1bf4445a130
+
+	measure 'Qtd Sinistros por Risco' = COUNT('base_final_priorizacao'[id_sinistro])
+		formatString: 0
+		lineageTag: 15a44da9-3908-46f3-a459-17970d055e93
+
+	measure 'Perda Evitada Potencial' = SUMX(FILTER(base_final_priorizacao, base_final_priorizacao[score_fraude] > 80), base_final_priorizacao[valor_reclamado])
+		formatString: 0
+		lineageTag: ae606b20-1559-41be-bbbb-baaa990c66cf
+
+	measure 'Total Fraudes Identificadas Modelo' = ```
+			
+			CALCULATE(
+			    COUNT('base_final_priorizacao'[id_sinistro]), 
+			    'base_final_priorizacao'[score_fraude] >= 80
+			)
+			```
+		formatString: 0
+		lineageTag: 28189d09-b4e6-4ede-ad3f-984ec28201ad
+
+	measure 'Taxa de Detecção de Fraude' =
+			
+			VAR Resultado = DIVIDE([Total Fraudes Identificadas Modelo], COUNT('base_final_priorizacao'[id_sinistro]))
+			RETURN
+			IF(ISBLANK(Resultado), 0, Resultado)
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: b77940f2-a684-443e-9eb6-b5d3b20ec50f
+
+	measure 'Meta Detecção' = 0.20
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: 3190a67e-444a-4f61-807c-1846af3e0517
+
+	measure 'Limite Minimo Gauge' = 0
+		formatString: 0
+		lineageTag: 3eac3005-9f7a-49fe-bc3c-87673df336e7
+
+	measure 'Limite Maximo Gauge' = 0.40
+		lineageTag: b316dd83-2278-451a-8dae-faf3262ccb44
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Qtd Fraudes Confirmadas' =
+			
+			CALCULATE(
+			    COUNT('base_final_priorizacao'[id_sinistro]),
+			    'base_final_priorizacao'[flag_fraude_confirmada] = 1
+			)
+		formatString: 0
+		lineageTag: 567625cd-df9d-4c7f-adf1-fe04aef9d04c
+
+	measure 'Valor em Risco' = CALCULATE(SUM('base_final_priorizacao'[valor_reclamado]), 'base_final_priorizacao'[score_fraude] >= 80)
+		formatString: 0
+		lineageTag: 74176adc-0120-4181-8aa6-178be037d8c4
+
+	measure 'Fraudes Detectadas (Score > 80)' =
+			
+			CALCULATE(
+			    [Qtd Fraudes Confirmadas],
+			    'base_final_priorizacao'[score_fraude] >= 80
+			)
+		formatString: 0
+		lineageTag: c4d6551e-8249-4f84-a34b-89dff14d098e
+
+	measure 'Fraudes Não Detectadas (Falso Negativo)' =
+			
+			CALCULATE(
+			    [Qtd Fraudes Confirmadas],
+			    'base_final_priorizacao'[score_fraude] < 80
+			)
+		formatString: 0
+		lineageTag: 0c5ecef3-fa27-4146-9099-dc3b818e4e95
+
+	column id_sinistro
+		dataType: int64
+		formatString: 0
+		lineageTag: 9c4a49c4-397b-4a4e-bea3-17338b9400bd
+		summarizeBy: sum
+		sourceColumn: id_sinistro
+
+		annotation SummarizationSetBy = Automatic
+
+	column id_apolice
+		dataType: int64
+		formatString: 0
+		lineageTag: 0323b31b-289a-4e10-8f61-1fd079f62caf
+		summarizeBy: sum
+		sourceColumn: id_apolice
+
+		annotation SummarizationSetBy = Automatic
+
+	column data_ocorrencia
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: bc710fd5-f8e5-451a-b40d-9ed594ea2b61
+		summarizeBy: none
+		sourceColumn: data_ocorrencia
+
+		variation Variation
+			isDefault
+			relationship: b0f83e7e-f9e8-47b7-abf4-9f59a99d9ffa
+			defaultHierarchy: LocalDateTable_f7ace052-7d7b-4b55-aa06-ff606bdd8e42.'Hierarquia de datas'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column tipo_sinistro
+		dataType: string
+		lineageTag: 59f8f6bf-8c44-4584-940b-3d909eef100b
+		summarizeBy: none
+		sourceColumn: tipo_sinistro
+
+		annotation SummarizationSetBy = Automatic
+
+	column valor_reclamado
+		dataType: int64
+		formatString: 0
+		lineageTag: 436bced3-955a-4c1a-b5e5-f4ddf7df4797
+		summarizeBy: sum
+		sourceColumn: valor_reclamado
+
+		annotation SummarizationSetBy = Automatic
+
+	column grande_monta
+		dataType: int64
+		formatString: 0
+		lineageTag: 646a914d-5a22-4e69-8571-2fb0d4c979c5
+		summarizeBy: sum
+		sourceColumn: grande_monta
+
+		annotation SummarizationSetBy = Automatic
+
+	column id_veiculo
+		dataType: int64
+		formatString: 0
+		lineageTag: a60257c4-13a6-4ac0-977f-1c6d1459d8b3
+		summarizeBy: sum
+		sourceColumn: id_veiculo
+
+		annotation SummarizationSetBy = Automatic
+
+	column cpf_segurado
+		dataType: string
+		lineageTag: 528a16ce-2787-4476-8e56-7da2845e39e9
+		summarizeBy: none
+		sourceColumn: cpf_segurado
+
+		annotation SummarizationSetBy = Automatic
+
+	column data_inicio_vigencia
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: e5692712-0160-42e9-9a3e-60033ac8782a
+		summarizeBy: none
+		sourceColumn: data_inicio_vigencia
+
+		variation Variation
+			isDefault
+			relationship: 6f9a08b1-be5e-4d06-b0d7-24abe07bc268
+			defaultHierarchy: LocalDateTable_142e163e-3ba6-49c3-a043-7416693d3e69.'Hierarquia de datas'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column cobertura
+		dataType: string
+		lineageTag: 649731d7-44bb-4f08-b01c-8339669b63e1
+		summarizeBy: none
+		sourceColumn: cobertura
+
+		annotation SummarizationSetBy = Automatic
+
+	column valor_fipe
+		dataType: int64
+		formatString: 0
+		lineageTag: ec84ed0d-ca9b-4f8e-bfb2-1f78f1dd03ef
+		summarizeBy: sum
+		sourceColumn: valor_fipe
+
+		annotation SummarizationSetBy = Automatic
+
+	column tipo_veiculo
+		dataType: string
+		lineageTag: 9d67f149-7df8-4a4d-a383-fc08ca1c9c34
+		summarizeBy: none
+		sourceColumn: tipo_veiculo
+
+		annotation SummarizationSetBy = Automatic
+
+	column flag_fraude_confirmada
+		dataType: int64
+		formatString: 0
+		lineageTag: 22fdf5af-3bf6-4977-9557-a9659050a619
+		summarizeBy: sum
+		sourceColumn: flag_fraude_confirmada
+
+		annotation SummarizationSetBy = Automatic
+
+	column dias_vigencia_ate_sinistro
+		dataType: int64
+		formatString: 0
+		lineageTag: 6a2e3b5e-d585-4171-bf7f-4fd69ab9c325
+		summarizeBy: sum
+		sourceColumn: dias_vigencia_ate_sinistro
+
+		annotation SummarizationSetBy = Automatic
+
+	column reincidencia_cpf
+		dataType: int64
+		formatString: 0
+		lineageTag: d82888f1-3aa1-4f95-9741-3438f40da760
+		summarizeBy: sum
+		sourceColumn: reincidencia_cpf
+
+		annotation SummarizationSetBy = Automatic
+
+	column alerta_fipe
+		dataType: int64
+		formatString: 0
+		lineageTag: 0dcee2db-07da-4df2-9446-39db3bcfad73
+		summarizeBy: sum
+		sourceColumn: alerta_fipe
+
+		annotation SummarizationSetBy = Automatic
+
+	column score_fraude
+		dataType: int64
+		formatString: 0
+		lineageTag: 1f9b25ea-8c0e-468d-a6f0-a7fd35ef9b4b
+		summarizeBy: sum
+		sourceColumn: score_fraude
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isDecimal":true}
+
+	column 'Faixa de Risco' =
+			
+			SWITCH(
+			    TRUE(),
+			    'base_final_priorizacao'[score_fraude] <= 10, "00-10 (Baixíssimo)",
+			    'base_final_priorizacao'[score_fraude] <= 20, "11-20 (Baixo)",
+			    'base_final_priorizacao'[score_fraude] <= 40, "21-40 (Moderado)",
+			    'base_final_priorizacao'[score_fraude] <= 60, "41-60 (Atenção)",
+			    'base_final_priorizacao'[score_fraude] <= 80, "61-80 (Alto)",
+			    'base_final_priorizacao'[score_fraude] <= 90, "81-90 (Crítico)",
+			    "91-100 (Sindicância Imediata)"
+			)
+		lineageTag: 3e2dd6e7-1752-460b-bd27-1c65a78e9afb
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Status do Sinistro' = ```
+			
+			IF(
+			    VALUE('base_final_priorizacao'[flag_fraude_confirmada]) = 1, 
+			    "Fraude", 
+			    "Regular"
+			)
+			```
+		lineageTag: c124db30-9b1a-467c-945b-ecf605823447
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Data Ano' = YEAR('base_final_priorizacao'[data_ocorrencia])
+		formatString: 0
+		lineageTag: 7dc0fc04-90ed-445b-9cef-4b890431df76
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Data Mes' = FORMAT('base_final_priorizacao'[data_ocorrencia].[Ano], "MMMM")
+		lineageTag: 767ae852-25c3-430a-ae37-7dcefd8e216f
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	partition base_final_priorizacao = m
+		mode: import
+		source =
+				let
+				    Fonte = Csv.Document(File.Contents("C:\Users\passo\OneDrive\Área de Trabalho\projeto-fraude-seguros\data\processed\base_final_priorizacao.csv"),[Delimiter=",", Columns=17, Encoding=65001, QuoteStyle=QuoteStyle.None]),
+				    #"Cabeçalhos Promovidos" = Table.PromoteHeaders(Fonte, [PromoteAllScalars=true]),
+				    #"Tipo Alterado" = Table.TransformColumnTypes(#"Cabeçalhos Promovidos",{{"id_sinistro", Int64.Type}, {"id_apolice", Int64.Type}, {"data_ocorrencia", type date}, {"tipo_sinistro", type text}, {"valor_reclamado", Int64.Type}, {"grande_monta", Int64.Type}, {"id_veiculo", Int64.Type}, {"cpf_segurado", type text}, {"data_inicio_vigencia", type date}, {"cobertura", type text}, {"valor_fipe", Int64.Type}, {"tipo_veiculo", type text}, {"flag_fraude_confirmada", Int64.Type}, {"dias_vigencia_ate_sinistro", Int64.Type}, {"reincidencia_cpf", Int64.Type}, {"alerta_fipe", Int64.Type}, {"score_fraude", Int64.Type}})
+				in
+				    #"Tipo Alterado"
+
+	annotation PBI_ResultType = Table
+

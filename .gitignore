@@ -1,0 +1,21 @@
+# Dados - Ignorar arquivos CSV e bases brutas para segurança e performance
+data/raw/*.csv
+data/processed/*.csv
+
+# Configurações do VS Code e Sistema
+.vscode/
+.DS_Store
+Thumbs.db
+
+# Python - Arquivos temporários e cache
+__pycache__/
+*.py[cod]
+*$py.class
+.ipynb_checkpoints/
+.venv/
+venv/
+env/
+
+# Power BI - Arquivos temporários de recuperação
+*.tmp
+*.zip
