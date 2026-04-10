@@ -10,6 +10,13 @@ Assertividade (Hit Rate): 16,47%.
 
 Volume Analisado: 55 mil sinistros.
 
+
+## 📊 Visualização do Projeto
+![Dashboard de Análise de Fraude](img/Dash origin.jpg)
+
+
+![Dashboard de Análise de Fraude](img/Dash filtro.jpg)
+
 📁 Estrutura do Projeto
 Conforme a arquitetura do repositório:
 
