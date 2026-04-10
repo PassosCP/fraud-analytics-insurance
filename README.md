@@ -12,10 +12,10 @@ Volume Analisado: 55 mil sinistros.
 
 
 ## 📊 Visualização do Projeto
-![Dashboard de Análise de Fraude](img/Dash origin.jpg)
+![Dashboard de Análise de Fraude](img/Dash_origin.jpg)
 
 
-![Dashboard de Análise de Fraude](img/Dash filtro.jpg)
+![Dashboard de Análise de Fraude](img/Dash_filtro.jpg)
 
 📁 Estrutura do Projeto
 Conforme a arquitetura do repositório:
